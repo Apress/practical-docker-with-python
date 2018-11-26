@@ -1,5 +1,5 @@
 from peewee import *
-db = SqliteDatabase('newsbot.db')
+db = SqliteDatabase('data/newsbot.db')
 
 class BaseModel(Model):
     class Meta:

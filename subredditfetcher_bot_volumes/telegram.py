@@ -6,6 +6,7 @@ from states import States, log
 from constants import *
 from reddit import get_latest_news
 from models import *
+import peewee
 
 __author__ = 'Sathyajith'
 db = SqliteDatabase('newsbot.db')
@@ -83,12 +84,11 @@ def handle_incoming_messages(last_updated):
             if split_chat_text[0] == '/fetch' and (person_id not in skip_list):
                 post_message(person_id, 'Hang on, fetching your news..')
                 try:
-                    #sub_reddits = sources_dict[person_id]
                     sub_reddits = Source.get(person_id = person_id).fetch_from.strip()
                     summarized_news = get_latest_news(sub_reddits)
                     post_message(person_id, summarized_news)
-                except KeyError:
-                    post_message(person_id, ERR_NO_SOURCE)
+                except peewee.DoesNotExist:
+                    post_message(person_id, 'Could not find a saved subreddit, please try setting sources with /source')
                     
             last_updated = req['update_id']
             with open('last_updated.txt', 'w') as f:
