@@ -9,7 +9,7 @@ from models import *
 import peewee
 
 __author__ = 'Sathyajith'
-db = SqliteDatabase('newsbot.db')
+
 
 
 def get_updates(last_updated):
@@ -61,9 +61,16 @@ def handle_incoming_messages(last_updated):
                 if r.group(2):
                     sources_dict[person_id] = r.group(2)
                     log.info('Sources set for {0} to {1}'.format(person_id, sources_dict[person_id]))
-                    sources = Source(person_id = person_id, fetch_from = sources_dict[person_id])
-                    sources.save()
-                    log.info(sources.person_id)
+                    with db.atomic() as txn:
+                        try:
+                            sources = Source.create(person_id=person_id, fetch_from=sources_dict[person_id])
+                            log.info('Inserted row id: {1}'.format(sources.person_id))
+                        except peewee.IntegrityError:
+                            sources = Source.update(fetch_from=sources_dict[person_id]).where(person_id == person_id)
+                            rows_updated = sources.execute()
+                            log.info('Updated {0} rows, query obj {1}'.format(rows_updated, sources))
+                        txn.commit()
+
                     post_message(person_id, 'Sources set as {0}!'.format(r.group(2)))
                 else:
                     post_message(person_id, 'We need a comma separated list of subreddits! No subreddit, no news :-(')
