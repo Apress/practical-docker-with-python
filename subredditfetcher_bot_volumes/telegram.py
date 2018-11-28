@@ -64,7 +64,7 @@ def handle_incoming_messages(last_updated):
                     with db.atomic() as txn:
                         try:
                             sources = Source.create(person_id=person_id, fetch_from=sources_dict[person_id])
-                            log.info('Inserted row id: {1}'.format(sources.person_id))
+                            log.info('Inserted row id: {0}'.format(sources.person_id))
                         except peewee.IntegrityError:
                             sources = Source.update(fetch_from=sources_dict[person_id]).where(person_id == person_id)
                             rows_updated = sources.execute()
