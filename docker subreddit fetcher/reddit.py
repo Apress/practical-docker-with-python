@@ -26,7 +26,7 @@ def get_latest_news(sub_reddits):
     # Can change the subreddit or add more.
     sub_reddits = clean_up_subreddits(sub_reddits)
     log.debug('Fetching subreddits: {0}'.format(sub_reddits))
-    submissions = r.get_subreddit(sub_reddits).get_top(limit=5)
+    submissions = r.subreddit(sub_reddits).hot(limit=5)
     submission_content = ''
     try:
         for post in submissions:
