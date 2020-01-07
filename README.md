@@ -7,9 +7,38 @@ This repository accompanies [*Practical Docker with Python*](https://www.apress.
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git.
 
+The source code is available chapter wise and is available in [/source-code](/source-code) directory. The zip files corresponding to each filename referenced in the exercise. The structure is as below
+
+```
+── chapter-4
+│   ├── exercise-1
+│   │   ├── docker-hello-world
+│   ├── exercise-2
+│   │   ├── docker-multi-stage
+│   └── exercise-3
+│       └── docker-subreddit-fetcher
+├── chapter-5
+│   ├── exercise-1
+│   │   ├── docker-volume-bind-mount
+│   └── exercise-2
+│       ├── docker-subreddit-fetcher-volume
+├── chapter-6
+│   └── exercise-1
+│       ├── docker-subreddit-fetcher-network
+└── chapter-7
+    ├── exercise-1
+    │   └── docker-compose-adminer
+    └── exercise-2
+        └── subreddit-fetcher-compose
+```
+
 ## Releases
 
 Release v1.0 corresponds to the code in the published book, without corrections or updates.
+
+v1.1
+
+- Some fixes to clean up the code structure and correct bugs as reported
 
 ## Contributions
 
