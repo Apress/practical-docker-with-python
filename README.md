@@ -7,7 +7,7 @@ This repository accompanies [*Practical Docker with Python*](https://www.apress.
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git.
 
-The source code is available chapter wise and is available in [/source-code](/source-code) directory. The zip files corresponding to each filename referenced in the exercise. The structure is as below
+The source code is available chapter wise and is available in [/source-code](/source-code) directory. The zip files referenced in each chapter is available under [releases](https://github.com/Apress/practical-docker-with-python/releases) corresponding to each filename referenced in the exercise. The structure is as below
 
 ```
 ── chapter-4
