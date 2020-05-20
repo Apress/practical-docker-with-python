@@ -10,6 +10,8 @@ Download the files as a zip using the green button, or clone the repository to y
 The source code is available chapter wise and is available in [/source-code](/source-code) directory. The zip files referenced in each chapter is available under [releases](https://github.com/Apress/practical-docker-with-python/releases) corresponding to each filename referenced in the exercise. The structure is as below
 
 ```
+── chapter-3
+│   ├── python-app
 ── chapter-4
 │   ├── exercise-1
 │   │   ├── docker-hello-world
