@@ -38,7 +38,10 @@ def handle_incoming_messages(last_updated):
     split_chat_text = []
     if r['ok']:
         for req in r['result']:
-            chat_sender_id = req['message']['chat']['id']
+            if 'message' in req:
+                chat_sender_id = req['message']['chat']['id']
+            else:
+                chat_sender_id = req['edited_message']['chat']['id']
             try:
                 chat_text = req['message']['text']
                 split_chat_text = chat_text.split()
@@ -47,7 +50,10 @@ def handle_incoming_messages(last_updated):
                 split_chat_text.append(chat_text)
                 log.debug('Looks like no chat text was detected... moving on')
             try:
-                person_id = req['message']['from']['id']
+                if 'message' in req:
+                    person_id = req['message']['from']['id']
+                else:
+                    person_id = ['edited_message']['from']['id']
             except KeyError:
                 pass
 
