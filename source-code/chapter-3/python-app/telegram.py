@@ -49,13 +49,11 @@ def handle_incoming_messages(last_updated):
                 chat_text = ''
                 split_chat_text.append(chat_text)
                 log.debug('Looks like no chat text was detected... moving on')
-            try:
-                if 'message' in req:
-                    person_id = req['message']['from']['id']
-                else:
-                    person_id = ['edited_message']['from']['id']
-            except KeyError:
-                pass
+
+            if 'message' in req:
+                person_id = req['message']['from']['id']
+            else:
+                person_id = req['edited_message']['from']['id']
 
             log.info('Chat text received: {0}'.format(chat_text))
             r = re.search('(source+)(.*)', chat_text)
