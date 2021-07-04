@@ -1,11 +1,15 @@
 __author__ = 'Sathyajith'
 
-import os
+from os import environ
+from sys import exit
 ERR_NO_SOURCE = 'No sources defined! Set a source using /source list, of, sub, reddits'
 skip_list = []
 sources_dict = {}
-
-BOT_KEY = os.environ['NBT_ACCESS_TOKEN']
-API_BASE = 'https://api.telegram.org/bot'
-UPDATE_PERIOD = 6
+UPDATE_PERIOD = 1
 FALSE_RESPONSE = {"ok": False}
+
+BOT_KEY = environ.get('NBT_ACCESS_TOKEN')
+if not BOT_KEY:
+    print("Telegram access token not set, exiting.")
+    exit(1)
+API_BASE = f'https://api.telegram.org/bot{BOT_KEY}'
