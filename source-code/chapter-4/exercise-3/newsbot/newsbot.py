@@ -12,15 +12,15 @@ def get_last_updated():
         f.close()
     except FileNotFoundError:
         last_updated = 0
-    log.debug('Last updated id: {0}'.format(last_updated))
+    log.debug(f"Last updated id: {last_updated}")
     return last_updated
 
 if __name__ == '__main__':
 
     try:
-        log.debug('Starting up')
+        log.info("Starting up")
         States.last_updated = get_last_updated()
         while True:
             handle_incoming_messages(States.last_updated)
     except KeyboardInterrupt:
-        log.info('Received KeybInterrupt, exiting')
+        log.info("Received KeybInterrupt, exiting")
