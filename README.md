@@ -18,7 +18,7 @@ The source code is available chapter wise and is available in [/source-code](/so
 │   ├── exercise-2
 │   │   ├── docker-multi-stage
 │   └── exercise-3
-│       └── docker-subreddit-fetcher
+│       └── newsbot
 ├── chapter-5
 │   ├── exercise-1
 │   │   ├── docker-volume-bind-mount
