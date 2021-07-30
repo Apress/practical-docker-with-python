@@ -19,8 +19,3 @@ Refer to the [book repo](https://github.com/apress/practical-docker-with-python)
 
 where `<token>` is the [Telegram Bot API](https://core.telegram.org/bots/api) token
 
-
-### Credits
-
-- [Ken](https://github.com/KenStoneBlue) for letting me know that I didn't add requirements!
-- [Karan](https://github.com/mr-karan) for initial work
