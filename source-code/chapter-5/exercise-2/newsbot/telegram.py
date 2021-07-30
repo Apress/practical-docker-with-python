@@ -105,5 +105,5 @@ def handle_incoming_messages(last_updated):
                 f.write(str(last_updated))
                 States.last_updated = last_updated
                 log.debug(
-                    'Updated last_updated to {last_updated}')
+                    f'Updated last_updated to {last_updated}')
             f.close()
