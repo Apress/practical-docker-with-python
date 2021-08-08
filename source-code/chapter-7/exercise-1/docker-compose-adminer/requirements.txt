@@ -1,3 +1,0 @@
-praw
-peewee==2.10.2
-PyMySQL
