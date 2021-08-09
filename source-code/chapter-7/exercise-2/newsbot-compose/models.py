@@ -1,6 +1,8 @@
-from peewee import *
-# db = SqliteDatabase('newsbot.db')
+from peewee import Model, PrimaryKeyField, IntegerField, CharField, DateTimeField, MySQLDatabase
+
+
 db = MySQLDatabase(host="mysql", port=3306, user="root", password="dontusethisinprod", database="newsbot")
+
 class BaseModel(Model):
     class Meta:
         database = db
