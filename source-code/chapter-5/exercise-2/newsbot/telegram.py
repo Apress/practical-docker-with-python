@@ -74,6 +74,7 @@ def handle_incoming_messages(last_updated):
                             rows_updated = sources.execute()
                             log.info(f'Updated {rows_updated} rows')
                         txn.commit()
+
                     post_message(person_id, 'Sources set as {0}!'.format(r.group(2)))
                 else:
                     post_message(person_id, 'We need a comma separated list of subreddits! No subreddit, no news :-(')
