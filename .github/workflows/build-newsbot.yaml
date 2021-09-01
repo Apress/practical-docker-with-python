@@ -26,6 +26,6 @@ jobs:
         pip install flake8
         cd source-code/chapter-7/exercise-2/newsbot-compose
         # run flake8 first to detect any python syntax errors
-        flake8 . --count --show-source --statistics
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # run again to exit treating all errors as warnings 
         flake8 . --count --exit-zero --max-complexity=10 --statistics
