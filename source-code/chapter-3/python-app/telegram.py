@@ -10,7 +10,7 @@ __author__ = 'Sathyajith'
 
 
 def get_updates(last_updated):
-    log.debug('Checking for requests, last updated passed is: {last_updated}')
+    log.info('Checking for requests, last updated passed is: {last_updated}')
     sleep(UPDATE_PERIOD)
     response = requests.get(f"{API_BASE}/getUpdates", params={'offset': last_updated+1})
     json_response = FALSE_RESPONSE

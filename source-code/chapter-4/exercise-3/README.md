@@ -1,6 +1,6 @@
 ### README
 
-This exercise contains the source code for the third exercise of chapter 4. In this exercise, we compose a Dockerfile for Newsbot and then use the Dockerfile to build a Docker image and run the container.
+This directory contains the source code for the third exercise of chapter 4. In this exercise, we compose a Dockerfile for Newsbot and then use the Dockerfile to build a Docker image and run the container.
 
 
 ### Building the Docker image
