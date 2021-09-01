@@ -2,8 +2,7 @@ from states import States, log
 from telegram import handle_incoming_messages
 from models import *
 from time import sleep
-
-import sys
+from peewee import OperationalError
 import pymysql
 
 
@@ -28,14 +27,12 @@ if __name__ == '__main__':
     log.info('Checking on dbs')
     try:
         db.connect()
-    except OperationalError as o:
-        print("Could not connect to db, please check db parameters")
-        sys.exit(-1)
-    except InternalError as e:
-        # 1049 is MySQL error code for db doesn't exist - so we create it. 
-        db_connection = pymysql.connect(host='mysql', user= 'root', password='dontusethisinprod')
-        db_connection.cursor().execute('CREATE DATABASE newsbot')
-        db_connection.close()
+    except OperationalError as e:
+        error_code, message = e.args[0], e.args[1]
+        if error_code == 1049:
+            db_connection = pymysql.connect(host='mysql', user= 'root', password='dontusethisinprod')
+            db_connection.cursor().execute('CREATE DATABASE newsbot')
+            db_connection.close()
         db.create_tables([Source, Request, Message], True)
 
     try:

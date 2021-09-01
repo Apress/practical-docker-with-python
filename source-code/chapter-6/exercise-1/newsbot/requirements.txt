@@ -1,0 +1,4 @@
+peewee==2.10.2
+praw==7.4.0
+PyMySQL
+cryptography

@@ -1,0 +1,25 @@
+services:  
+  newsbot:  
+    build: .  
+    depends_on:  
+      - mysql  
+    restart: "on-failure"  
+    environment: 
+      NBT_ACCESS_TOKEN: ${NBT_ACCESS_TOKEN}
+    networks:
+      - newsbot
+ 
+  mysql:  
+    image: mysql 
+    volumes:  
+        - newsbot-db:/var/lib/mysql  
+    environment:  
+        MYSQL_ROOT_PASSWORD: dontusethisinprod  
+    networks:
+      - newsbot
+ 
+volumes:  
+  newsbot-db: 
+
+networks:
+  newsbot:

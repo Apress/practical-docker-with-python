@@ -98,7 +98,7 @@ def handle_incoming_messages(last_updated):
                     summarized_news = get_latest_news(sub_reddits)
                     post_message(person_id, summarized_news)
                 except peewee.DoesNotExist:
-                    post_message(person_id, 'Could not find a saved subreddit, please try setting sources with /source')
+                    post_message(person_id, ERR_NO_SOURCE)
                     
             last_updated = req['update_id']
             with open('last_updated.txt', 'w') as f:
