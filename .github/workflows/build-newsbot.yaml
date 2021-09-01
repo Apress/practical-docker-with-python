@@ -29,3 +29,21 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # run again to exit treating all errors as warnings 
         flake8 . --count --exit-zero --max-complexity=10 --statistics
+
+  docker-build:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.7"
+    
+    - name: Build Docker Image
+      run: |
+        cd source-code/chapter-7/exercise-2/newsbot-compose
+        docker build -t newsbot:latest .
