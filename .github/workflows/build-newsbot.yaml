@@ -1,0 +1,23 @@
+name: Lint and build Docker
+on: [push, pull_request]
+
+jobs:
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Setup Pythn
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.7"
+    
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pwd
+        cd source-code/chapter-7/exercise-2/newsbot-compose
+        pip install -r requirements.txt
