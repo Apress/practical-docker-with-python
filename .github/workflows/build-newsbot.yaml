@@ -39,12 +39,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.7"
-    
     - name: Build Docker Image
       run: |
         cd source-code/chapter-7/exercise-2/newsbot-compose
-        docker build -t newsbot:${GITHUB_SHA} .
+        docker build -t sathyabhat/newsbot:${GITHUB_SHA} .
+        docker push sathyabhat/newsbot:${GITHUB_SHA}
