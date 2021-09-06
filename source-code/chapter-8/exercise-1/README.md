@@ -1,0 +1,2 @@
+[kind](https://kind.sigs.k8s.io/), short for Kubernetes in Docker is a tool for running local Kubernetes clusters using Docker containers acting as nodes. For this exercise, we will look at how we can spin up a multi-node Kubernetes cluster using Kind. 
+Kind makes it easy to create multi-node clusters to test out locally. The final Kind configuration to create a multi-node cluster comprising of 3 control-plane nodes and 3 workers is found in [kind-multi-node.yml](kind-multi-node.yml)
