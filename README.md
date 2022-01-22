@@ -1,9 +1,9 @@
 # Apress Source Code
 
-This repository accompanies [*Practical Docker with Python*](https://www.apress.com/9781484237830) by Sathyajith Bhat (Apress, 2018).
+This repository accompanies Practical Docker with Python [first](https://www.apress.com/9781484237830) and [second](https://link.springer.com/book/10.1007/978-1-4842-7815-4) editions by Sathyajith Bhat (Apress, 2018 & 2022).
 
 [comment]: #cover
-![Cover image](9781484237830.jpg)
+![first edition cover image](https://media.springernature.com/w306/springer-static/cover-hires/book/978-1-4842-3784-7) ![second edition cover](https://media.springernature.com/w306/springer-static/cover-hires/book/978-1-4842-7815-4)
 
 Download the files as a zip using the green button, or clone the repository to your machine using Git.
 
@@ -38,7 +38,11 @@ The source code is available chapter wise and is available in [/source-code](/so
 
 Release v1.0 corresponds to the code in the published book, without corrections or updates.
 
-v1.1
+[v2.0](https://github.com/Apress/practical-docker-with-python/tree/v2.0)
+
+- Updates to cover the second edition 
+
+[v1.1](https://github.com/Apress/practical-docker-with-python/tree/v1.1)
 
 - Some fixes to clean up the code structure and correct bugs as reported
 
