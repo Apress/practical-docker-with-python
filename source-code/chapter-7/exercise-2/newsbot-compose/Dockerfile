@@ -1,6 +1,6 @@
-FROM python:3-alpine
+FROM python:3.7-alpine
 
-RUN apk add gcc musl-dev python3-dev libffi-dev openssl-dev cargo
+RUN apk add gcc musl-dev python3-dev libffi-dev openssl-dev
 WORKDIR /apps/subredditfetcher/
 COPY . .
 
