@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM python:3.9-alpine
 
 LABEL description="Dockerfile for Python script which prints Hello, Name"
 
